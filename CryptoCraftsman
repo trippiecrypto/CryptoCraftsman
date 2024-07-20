@@ -1,0 +1,35 @@
+# scripts/visualization.py
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def plot_transaction_value(df):
+    """
+    Plot the value of transactions.
+
+    :param df: DataFrame with transaction data
+    """
+    sns.barplot(data=df, x='Transaction Hash', y='Value (ETH)')
+    plt.title('Transaction Value')
+    plt.xlabel('Transaction Hash')
+    plt.ylabel('Value (ETH)')
+    plt.xticks(rotation=45, ha='right')
+    plt.show()
+
+def plot_gas_price(df):
+    """
+    Plot the gas price of transactions.
+
+    :param df: DataFrame with transaction data
+    """
+    sns.lineplot(data=df, x='Transaction Hash', y='Gas Price (Gwei)')
+    plt.title('Gas Price')
+    plt.xlabel('Transaction Hash')
+    plt.ylabel('Gas Price (Gwei)')
+    plt.xticks(rotation=45, ha='right')
+    plt.show()
+
+# Example usage:
+# df = pd.DataFrame({'Transaction Hash': ['0x123...'], 'Value (ETH)': [1.0], 'Gas Price (Gwei)': [50]})
+# plot_transaction_value(df)
+# plot_gas_price(df)
